@@ -249,7 +249,7 @@ class App:
                 ("PNG", "*.png"),
                 ("JPEG", "*.jpg"),
                 ("BMP", "*.bmp"),
-                ("PBM (Portable BitMap)", "*.pbm")
+                ("PBM", "*.pbm")
             ],
         )
 
