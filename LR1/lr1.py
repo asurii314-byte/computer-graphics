@@ -1,4 +1,4 @@
-﻿import tkinter as tk
+import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 
@@ -100,24 +100,35 @@ class ImageApp:
         except Exception as error:
             messagebox.showerror("Ошибка", f"Не удалось обработать изображение:\n{error}")
 
+
     def save_image(self):
-        if self.image is None:
-            return
-        try:
-            output_file = filedialog.asksaveasfilename(
-                title="Сохранить обработанное изображение",
-                defaultextension=".png",
-                filetypes=[
-                    ("PNG", "*.png"),
-                    ("JPEG", "*.jpg"),
-                    ("BMP", "*.bmp")
-                ]
-            )
-            if output_file:
-                self.image.save(output_file)
-                messagebox.showinfo("Успех", f"Изображение успешно сохранено:\n{output_file}")
-        except Exception as error:
-            messagebox.showerror("Ошибка", f"Не удалось сохранить файл:\n{error}")
+            if self.image is None:
+                messagebox.showerror("Ошибка", "Нет изображения для сохранения.")
+                return
+
+            try:
+                output_file = filedialog.asksaveasfilename(
+                    title="Сохранить обработанное изображение",
+                    defaultextension=".png",
+                    filetypes=[
+                        ("PNG", "*.png"),
+                        ("JPEG", "*.jpg"),
+                        ("BMP", "*.bmp"),
+                        ("PBM", "*.pbm")
+                    ]
+                )
+
+                if output_file:
+                    if output_file.lower().endswith(".pbm"):
+                        pbm_img = self.image.convert("1")
+                        pbm_img.save(output_file)
+                    else:
+                        self.image.save(output_file) 
+
+                    messagebox.showinfo("Успех", f"Изображение успешно сохранено:\n{output_file}")
+
+            except Exception as error:
+                messagebox.showerror("Ошибка", f"Не удалось сохранить файл:\n{error}")
 
 root = tk.Tk()
 app = ImageApp(root)
