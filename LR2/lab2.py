@@ -242,13 +242,29 @@ class App:
         if self.result_img is None:
             messagebox.showerror("Ошибка", "Нет изображения для сохранения.")
             return
+
         path = filedialog.asksaveasfilename(
             defaultextension=".png",
-            filetypes=[("PNG", "*.png"), ("JPEG", "*.jpg"), ("BMP", "*.bmp")],
+            filetypes=[
+                ("PNG", "*.png"),
+                ("JPEG", "*.jpg"),
+                ("BMP", "*.bmp"),
+                ("PBM (Portable BitMap)", "*.pbm")
+            ],
         )
+
         if path:
-            self.result_img.save(path)
-            messagebox.showinfo("Успех", "Изображение успешно сохранено.")
+            try:
+
+                if path.lower().endswith(".pbm"):
+                    pbm_img = self.result_img.convert("1")
+                    pbm_img.save(path)
+                else:
+                    self.result_img.save(path)
+
+                messagebox.showinfo("Успех", "Изображение успешно сохранено.")
+            except Exception as e:
+                messagebox.showerror("Ошибка", f"Не удалось сохранить файл: {e}")
 
 
 if __name__ == "__main__":
