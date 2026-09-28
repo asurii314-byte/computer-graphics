@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+
+  <rect width="400" height="300" fill="#f8f9fa" rx="8"/>
+
+
+  <text x="200" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#000">Отрезки</text>
+
+
+  <line x1="50" y1="80" x2="350" y2="80" stroke="#000" stroke-width="3"/>
+
+
+  <line x1="50" y1="130" x2="250" y2="130" stroke="#000" stroke-width="3"/>
+
+
+  <line x1="50" y1="180" x2="180" y2="180" stroke="#000" stroke-width="3"/>
+
+
+  <line x1="50" y1="230" x2="300" y2="230" stroke="#000" stroke-width="3"/>
+
+
+  <line x1="50" y1="260" x2="350" y2="260" stroke="#000" stroke-width="3"/>
+
+  <circle cx="50" cy="80" r="4" fill="#000"/>
+  <circle cx="350" cy="80" r="4" fill="#000"/>
+
+  <circle cx="50" cy="130" r="4" fill="#000"/>
+  <circle cx="250" cy="130" r="4" fill="#000"/>
+
+  <circle cx="50" cy="180" r="4" fill="#000"/>
+  <circle cx="180" cy="180" r="4" fill="#000"/>
+
+  <circle cx="50" cy="230" r="4" fill="#000"/>
+  <circle cx="300" cy="230" r="4" fill="#000"/>
+
+  <circle cx="50" cy="260" r="4" fill="#000"/>
+  <circle cx="350" cy="260" r="4" fill="#000"/>
+</svg>
